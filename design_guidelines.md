@@ -1,20 +1,23 @@
-# Photography Portfolio Design Guidelines
+# Outerspaceways Music Organization Design Guidelines
 
-## Design Approach: Reference-Based (Visual-Rich/Experience-Focused)
+## Design Approach: Afro-Futuristic Cosmic Aesthetic
 
-Drawing inspiration from leading portfolio platforms like **Behance**, **Adobe Portfolio**, and **Squarespace** to create a visually stunning photography showcase that prioritizes image presentation and emotional engagement.
+Drawing inspiration from **Sun Ra's avant-garde afro-futurism** and cosmic jazz aesthetics to create a bold, experimental music platform that celebrates geometric patterns, cosmic imagery, and vibrant artistic expression.
 
 ## Core Design Elements
 
 ### A. Color Palette
-**Primary Colors:**
-- Dark Mode: Background 220 15% 8%, Text 220 15% 95%
-- Light Mode: Background 220 15% 98%, Text 220 15% 15%
-- Accent: 210 85% 65% (professional blue for CTAs and links)
+**Cosmic Foundation:**
+- Deep Space Black: 240 100% 2% (primary dark background)
+- Cosmic Orange: 25 100% 50% (vibrant accent inspired by logo)
+- Afro-Futurist Teal: 180 100% 40% (secondary accent)
+- Solar Red: 0 100% 50% (highlight color)
+- Starlight White: 0 0% 98% (light mode background)
 
-**Photography Focus:**
-- Minimal color interference - let images be the star
-- Subtle neutral grays: 220 10% 25%, 220 8% 45%, 220 6% 75%
+**Geometric Patterns:**
+- Bold contrasts with geometric overlays
+- Cosmic imagery integration
+- Vibrant accent colors against dark spaces
 
 ### B. Typography
 **Primary Font:** Inter (Google Fonts) - clean, modern sans-serif
@@ -87,22 +90,24 @@ Drawing inspiration from leading portfolio platforms like **Behance**, **Adobe P
 - Style: High-impact, professionally shot image representing portfolio quality
 - Overlay: Subtle dark gradient (bottom) with photographer name and tagline
 
-**Gallery Images:** 
-- High-quality photography samples across multiple categories
-- Optimized thumbnails (400-600px width) for grid display
-- Full-resolution versions (1200-2000px) for lightbox viewing
-- Watermarked versions for protection
+**Artist Images:** 
+- High-quality photos of musicians and performers
+- Concert and performance photography
+- Artist portraits with cosmic/geometric overlays
+- Behind-the-scenes music creation imagery
 
-**About Section Image:**
-- Professional headshot or behind-the-scenes photography shot
-- Placement: Alongside bio text, 300-400px width on desktop
+**Music Scene Images:**
+- Live performance shots
+- Cosmic-themed music venue photography
+- Geometric pattern overlays on images
+- Afro-futuristic aesthetic throughout
 
 ## Key Design Principles
 
-1. **Image-First Design:** Every layout decision prioritizes photography display
-2. **Minimal Interference:** UI elements complement, never compete with images
-3. **Professional Polish:** Clean, gallery-quality presentation
-4. **Mobile Excellence:** Touch-optimized for photography viewing on phones
-5. **Protection-Minded:** Subtle but effective image protection measures
+1. **Cosmic-First Design:** Bold geometric patterns and space imagery throughout
+2. **Avant-Garde Expression:** Experimental layouts inspired by Sun Ra's innovation
+3. **Musical Focus:** Every element celebrates music and artistic expression
+4. **Afro-Futuristic Aesthetic:** Geometric patterns, cosmic themes, vibrant colors
+5. **Mobile Rhythm:** Touch-optimized for music discovery and event browsing
 
 This approach creates a sophisticated, gallery-like experience that showcases photography professionally while maintaining modern web standards and mobile usability.

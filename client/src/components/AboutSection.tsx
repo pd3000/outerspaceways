@@ -1,14 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Camera, Award, Users, MapPin } from "lucide-react";
+import { Music, Star, Users, Volume2 } from "lucide-react";
 import photographerImage from "@assets/generated_images/Photographer_behind_scenes_photo_b2694374.png";
 
 export function AboutSection() {
   const stats = [
-    { icon: Camera, label: "Photos Captured", value: "10,000+" },
-    { icon: Award, label: "Awards Won", value: "15" },
-    { icon: Users, label: "Happy Clients", value: "500+" },
-    { icon: MapPin, label: "Locations Visited", value: "50+" },
+    { icon: Music, label: "Artists Featured", value: "100+" },
+    { icon: Star, label: "Shows Hosted", value: "200+" },
+    { icon: Users, label: "Music Lovers", value: "5,000+" },
+    { icon: Volume2, label: "Cosmic Sounds", value: "∞" },
   ];
 
   return (
@@ -28,24 +28,24 @@ export function AboutSection() {
           {/* Content */}
           <div className="space-y-6">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">About the Artist</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">About Outerspaceways</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Welcome to Outer Space Ways Photography. I'm passionate about capturing the extraordinary 
-                in everyday moments and the breathtaking beauty of our natural world.
+                Welcome to Outerspaceways, where cosmic sounds meet afro-futuristic expression. 
+                Inspired by Sun Ra's revolutionary vision, we celebrate music that transcends earthly boundaries.
               </p>
             </div>
 
             <div className="space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                With over a decade of experience in photography, I specialize in landscape, portrait, 
-                and street photography. My work has been featured in numerous publications and 
-                exhibitions, and I've had the privilege of working with clients from around the world.
+                Since our founding, we've been dedicated to showcasing experimental musicians, 
+                avant-garde jazz artists, and electronic sound explorers who push the boundaries 
+                of what music can be. Our platform connects cosmic travelers through sound.
               </p>
               
               <p className="text-muted-foreground leading-relaxed">
-                Every photograph tells a story, and I believe in capturing authentic moments that 
-                resonate with emotion and meaning. Whether it's the golden hour over mountain peaks 
-                or the candid smile of a portrait subject, I strive to create images that stand the test of time.
+                Every performance is a journey into unknown dimensions. From intimate venue shows 
+                to large cosmic gatherings, we create spaces where musicians and audiences can 
+                explore the infinite possibilities of afro-futuristic sound together.
               </p>
             </div>
 
@@ -68,18 +68,20 @@ export function AboutSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg"
-                onClick={() => console.log("View portfolio clicked")}
-                data-testid="button-view-portfolio"
+                onClick={() => console.log("View artists clicked")}
+                data-testid="button-view-artists"
               >
-                View Full Portfolio
+                <Music className="h-4 w-4 mr-2" />
+                Explore Artists
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                onClick={() => console.log("Get in touch clicked")}
-                data-testid="button-get-in-touch"
+                onClick={() => console.log("Join community clicked")}
+                data-testid="button-join-community"
               >
-                Get in Touch
+                <Star className="h-4 w-4 mr-2" />
+                Join Our Community
               </Button>
             </div>
           </div>

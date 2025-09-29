@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Camera, Calendar, User, Mail } from "lucide-react";
+import { Menu, X, Music, Calendar, User, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link, useLocation } from "wouter";
@@ -9,8 +9,8 @@ export function Navigation() {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/", label: "Gallery", icon: Camera },
-    { href: "/events", label: "Events", icon: Calendar },
+    { href: "/", label: "Artists", icon: Music },
+    { href: "/events", label: "Shows", icon: Calendar },
     { href: "/about", label: "About", icon: User },
     { href: "/contact", label: "Contact", icon: Mail },
   ];
@@ -26,8 +26,8 @@ export function Navigation() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 hover-elevate rounded-md px-2 py-1" data-testid="link-home">
-            <Camera className="h-6 w-6 text-primary" />
-            <span className="font-semibold text-lg">Outer Space Ways</span>
+            <Music className="h-6 w-6 text-primary" />
+            <span className="font-semibold text-lg">Outerspaceways</span>
           </Link>
 
           {/* Desktop Navigation */}

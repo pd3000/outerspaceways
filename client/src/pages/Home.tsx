@@ -1,11 +1,11 @@
 import { HeroSection } from "@/components/HeroSection";
-import { PhotoGallery } from "@/components/PhotoGallery";
+import { ArtistGallery } from "@/components/PhotoGallery";
 
 export default function Home() {
   return (
     <div>
       <HeroSection />
-      <PhotoGallery />
+      <ArtistGallery />
     </div>
   );
 }

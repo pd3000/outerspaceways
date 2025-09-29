@@ -75,9 +75,9 @@ export function ContactForm() {
     <section className="py-16 bg-muted/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Connect with Us</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to capture your special moments? Let's discuss your photography needs.
+            Ready to join our cosmic musical journey? Let's explore the possibilities together.
           </p>
         </div>
 
@@ -85,10 +85,10 @@ export function ContactForm() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Let's Create Something Beautiful Together</h3>
+              <h3 className="text-2xl font-semibold mb-6">Let's Explore Cosmic Sounds Together</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Whether you're looking for landscape photography, professional portraits, or capturing 
-                a special event, I'd love to hear about your vision and bring it to life.
+                Whether you're an experimental musician, venue owner, or cosmic sound enthusiast, 
+                we'd love to hear from you and explore how we can collaborate in this musical dimension.
               </p>
             </div>
 
@@ -126,8 +126,8 @@ export function ContactForm() {
             <div className="bg-primary/5 p-6 rounded-lg">
               <h4 className="font-semibold mb-2">Response Time</h4>
               <p className="text-muted-foreground text-sm">
-                I typically respond to inquiries within 24 hours. For urgent bookings, 
-                please call the number above.
+                We typically respond to inquiries within 24 hours. For urgent show bookings 
+                or time-sensitive collaborations, please call the number above.
               </p>
             </div>
           </div>
@@ -175,17 +175,17 @@ export function ContactForm() {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="sessionType">Session Type</Label>
+                    <Label htmlFor="sessionType">Inquiry Type</Label>
                     <Select value={formData.sessionType} onValueChange={(value) => handleInputChange("sessionType", value)}>
-                      <SelectTrigger data-testid="select-session-type">
-                        <SelectValue placeholder="Select a session type" />
+                      <SelectTrigger data-testid="select-inquiry-type">
+                        <SelectValue placeholder="Select inquiry type" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="portrait">Portrait Session</SelectItem>
-                        <SelectItem value="landscape">Landscape Photography</SelectItem>
-                        <SelectItem value="wedding">Wedding Photography</SelectItem>
-                        <SelectItem value="event">Event Photography</SelectItem>
-                        <SelectItem value="commercial">Commercial Work</SelectItem>
+                        <SelectItem value="artist-submission">Artist Submission</SelectItem>
+                        <SelectItem value="venue-booking">Venue Booking</SelectItem>
+                        <SelectItem value="collaboration">Collaboration</SelectItem>
+                        <SelectItem value="press-media">Press & Media</SelectItem>
+                        <SelectItem value="general">General Inquiry</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
@@ -198,7 +198,7 @@ export function ContactForm() {
                     id="message"
                     value={formData.message}
                     onChange={(e) => handleInputChange("message", e.target.value)}
-                    placeholder="Tell me about your vision, preferred dates, location, and any special requirements..."
+                    placeholder="Tell us about your music, upcoming shows, collaboration ideas, or how you'd like to connect with our cosmic community..."
                     rows={5}
                     required
                     data-testid="textarea-message"

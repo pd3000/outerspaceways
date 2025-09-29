@@ -2,46 +2,46 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, MapPin, Camera, Users } from "lucide-react";
+import { Calendar, Clock, MapPin, Music, Users, Headphones } from "lucide-react";
 import { format, addDays, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, isToday } from "date-fns";
 
 // todo: remove mock data - replace with Google Calendar API
 const mockEvents = [
   {
     id: 1,
-    title: "Sunrise Mountain Shoot",
+    title: "Zara Cosmic Live",
     date: new Date(),
-    time: "6:00 AM",
-    location: "Blue Ridge Mountains",
-    type: "Landscape",
-    description: "Capturing the golden hour light over the mountain peaks.",
+    time: "8:00 PM",
+    location: "The Cosmic Lounge",
+    type: "Live Performance",
+    description: "Avant-garde saxophone meets interstellar soundscapes.",
   },
   {
     id: 2,
-    title: "Corporate Headshots",
+    title: "Afrofuture Collective Showcase",
     date: addDays(new Date(), 3),
-    time: "2:00 PM",
-    location: "Downtown Studio",
-    type: "Portrait",
-    description: "Professional headshots for local business team.",
+    time: "7:30 PM",
+    location: "Space Station Venue",
+    type: "Electronic",
+    description: "Traditional rhythms reimagined for the space age.",
   },
   {
     id: 3,
-    title: "Street Photography Walk",
+    title: "Solar Wind Orchestra",
     date: addDays(new Date(), 7),
-    time: "10:00 AM",
-    location: "Historic District",
-    type: "Street",
-    description: "Urban exploration and street photography session.",
+    time: "9:00 PM",
+    location: "The Observatory",
+    type: "Free Jazz",
+    description: "17 musicians exploring cosmic dimensions together.",
   },
   {
     id: 4,
-    title: "Wedding Photography",
+    title: "Outerspaceways Open Mic",
     date: addDays(new Date(), 14),
-    time: "3:00 PM",
-    location: "Riverside Gardens",
-    type: "Wedding",
-    description: "Capturing a beautiful outdoor wedding ceremony.",
+    time: "6:00 PM",
+    location: "Nebula Arts Center",
+    type: "Open Mic",
+    description: "Monthly gathering for experimental musicians.",
   },
 ];
 
@@ -63,29 +63,31 @@ export function EventsCalendar() {
 
   const getEventTypeIcon = (type: string) => {
     switch (type) {
-      case "Landscape":
-        return <Camera className="h-4 w-4" />;
-      case "Portrait":
-        return <Users className="h-4 w-4" />;
-      case "Wedding":
+      case "Live Performance":
+        return <Music className="h-4 w-4" />;
+      case "Electronic":
+        return <Headphones className="h-4 w-4" />;
+      case "Free Jazz":
+        return <Music className="h-4 w-4" />;
+      case "Open Mic":
         return <Users className="h-4 w-4" />;
       default:
-        return <Camera className="h-4 w-4" />;
+        return <Music className="h-4 w-4" />;
     }
   };
 
   const getEventTypeColor = (type: string) => {
     switch (type) {
-      case "Landscape":
-        return "bg-green-500";
-      case "Portrait":
-        return "bg-blue-500";
-      case "Street":
+      case "Live Performance":
+        return "bg-orange-500";
+      case "Electronic":
+        return "bg-teal-500";
+      case "Free Jazz":
         return "bg-purple-500";
-      case "Wedding":
-        return "bg-pink-500";
+      case "Open Mic":
+        return "bg-red-500";
       default:
-        return "bg-gray-500";
+        return "bg-primary";
     }
   };
 
@@ -93,9 +95,9 @@ export function EventsCalendar() {
     <section className="py-16 bg-muted/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Upcoming Events</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Upcoming Shows</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Stay updated with photography sessions, workshops, and special events.
+            Experience cosmic sounds and afro-futuristic music in intimate venues across the galaxy.
           </p>
         </div>
 
