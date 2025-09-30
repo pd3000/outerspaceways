@@ -7,7 +7,6 @@ export function AboutSection() {
   const stats = [
     { icon: Music, label: "Artists Featured", value: "100+" },
     { icon: Star, label: "Shows Hosted", value: "200+" },
-    { icon: Users, label: "Music Lovers", value: "5,000+" },
     { icon: Volume2, label: "Cosmic Sounds", value: "∞" },
   ];
 
