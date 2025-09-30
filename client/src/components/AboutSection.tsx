@@ -5,8 +5,6 @@ import photographerImage from "@assets/generated_images/Photographer_behind_scen
 
 export function AboutSection() {
   const stats = [
-    { icon: Music, label: "Artists Featured", value: "100+" },
-    { icon: Star, label: "Shows Hosted", value: "200+" },
     { icon: Volume2, label: "Cosmic Sounds", value: "∞" },
   ];
 
