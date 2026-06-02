@@ -6,44 +6,15 @@ import { Calendar, Clock, MapPin, Music, Users, Headphones } from "lucide-react"
 import { format, addDays, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, isToday } from "date-fns";
 
 // todo: remove mock data - replace with Google Calendar API
-const mockEvents = [
-  {
-    id: 1,
-    title: "Zara Cosmic Live",
-    date: new Date(),
-    time: "8:00 PM",
-    location: "The Cosmic Lounge",
-    type: "Live Performance",
-    description: "Avant-garde saxophone meets interstellar soundscapes.",
-  },
-  {
-    id: 2,
-    title: "Afrofuture Collective Showcase",
-    date: addDays(new Date(), 3),
-    time: "7:30 PM",
-    location: "Space Station Venue",
-    type: "Electronic",
-    description: "Traditional rhythms reimagined for the space age.",
-  },
-  {
-    id: 3,
-    title: "Solar Wind Orchestra",
-    date: addDays(new Date(), 7),
-    time: "9:00 PM",
-    location: "The Observatory",
-    type: "Free Jazz",
-    description: "17 musicians exploring cosmic dimensions together.",
-  },
-  {
-    id: 4,
-    title: "Outerspaceways Open Mic",
-    date: addDays(new Date(), 14),
-    time: "6:00 PM",
-    location: "Nebula Arts Center",
-    type: "Open Mic",
-    description: "Monthly gathering for experimental musicians.",
-  },
-];
+const mockEvents: {
+  id: number;
+  title: string;
+  date: Date;
+  time: string;
+  location: string;
+  type: string;
+  description: string;
+}[] = [];
 
 export function EventsCalendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -96,9 +67,6 @@ export function EventsCalendar() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Upcoming Shows</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Experience cosmic sounds and afro-futuristic music in intimate venues across the galaxy.
-          </p>
         </div>
 
         {/* View Toggle */}

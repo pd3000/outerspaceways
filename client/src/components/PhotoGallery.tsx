@@ -8,58 +8,16 @@ import portraitImage from "@assets/generated_images/Professional_portrait_photo_
 import streetImage from "@assets/generated_images/Black_white_street_photo_63e586de.png";
 
 // todo: remove mock data
-const mockArtists = [
-  {
-    id: 1,
-    src: portraitImage,
-    title: "Zara Cosmic",
-    category: "Experimental Jazz",
-    description: "Avant-garde saxophone and cosmic synthesizers",
-    website: "https://zaracosmic.space",
-  },
-  {
-    id: 2,
-    src: streetImage,
-    title: "The Afrofuture Collective",
-    category: "Electronic",
-    description: "Blending traditional rhythms with space-age sounds",
-    website: "https://afrofuturecollective.net",
-  },
-  {
-    id: 3,
-    src: landscapeImage,
-    title: "Solar Wind Orchestra",
-    category: "Free Jazz",
-    description: "17-piece ensemble exploring cosmic dimensions",
-    website: "https://solarwindorchestra.org",
-  },
-  {
-    id: 4,
-    src: portraitImage,
-    title: "Luna Bass",
-    category: "Experimental",
-    description: "Solo bass explorations of outer space",
-    website: "https://lunabass.space",
-  },
-  {
-    id: 5,
-    src: streetImage,
-    title: "Quantum Drummers",
-    category: "Percussion",
-    description: "Polyrhythmic journeys through time and space",
-    website: "https://quantumdrummers.net",
-  },
-  {
-    id: 6,
-    src: landscapeImage,
-    title: "Nebula Voices",
-    category: "Vocal",
-    description: "Ethereal harmonies from distant galaxies",
-    website: "https://nebulavoices.space",
-  },
-];
+const mockArtists: {
+  id: number;
+  src: string;
+  title: string;
+  category: string;
+  description: string;
+  website: string;
+}[] = [];
 
-const categories = ["All", "Experimental Jazz", "Electronic", "Free Jazz", "Percussion", "Vocal"];
+const categories: string[] = ["All"];
 
 export function ArtistGallery() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -118,9 +76,6 @@ export function ArtistGallery() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Artists</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Cosmic musicians and sound explorers pushing the boundaries of afro-futuristic expression.
-          </p>
         </div>
 
         {/* Category Filter */}

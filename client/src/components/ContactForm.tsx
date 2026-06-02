@@ -57,18 +57,6 @@ export function ContactForm() {
       content: "hello@outerspaceways.org",
       href: "mailto:hello@outerspaceways.org",
     },
-    {
-      icon: Phone,
-      title: "Phone",
-      content: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
-    },
-    {
-      icon: MapPin,
-      title: "Location",
-      content: "Based in the Blue Ridge Mountains",
-      href: null,
-    },
   ];
 
   return (
@@ -76,21 +64,11 @@ export function ContactForm() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Connect with Us</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Ready to join our cosmic musical journey? Let's explore the possibilities together.
-          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Let's Explore Cosmic Sounds Together</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Whether you're an experimental musician, venue owner, or cosmic sound enthusiast, 
-                we'd love to hear from you and explore how we can collaborate in this musical dimension.
-              </p>
-            </div>
 
             <div className="space-y-4">
               {contactInfo.map((info, index) => {
@@ -123,13 +101,6 @@ export function ContactForm() {
               })}
             </div>
 
-            <div className="bg-primary/5 p-6 rounded-lg">
-              <h4 className="font-semibold mb-2">Response Time</h4>
-              <p className="text-muted-foreground text-sm">
-                We typically respond to inquiries within 24 hours. For urgent show bookings 
-                or time-sensitive collaborations, please call the number above.
-              </p>
-            </div>
           </div>
 
           {/* Contact Form */}
@@ -198,7 +169,7 @@ export function ContactForm() {
                     id="message"
                     value={formData.message}
                     onChange={(e) => handleInputChange("message", e.target.value)}
-                    placeholder="Tell us about your music, upcoming shows, collaboration ideas, or how you'd like to connect with our cosmic community..."
+                    placeholder=""
                     rows={5}
                     required
                     data-testid="textarea-message"

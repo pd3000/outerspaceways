@@ -4,9 +4,7 @@ import { Music, Star, Users, Volume2 } from "lucide-react";
 import photographerImage from "@assets/generated_images/Photographer_behind_scenes_photo_b2694374.png";
 
 export function AboutSection() {
-  const stats = [
-    { icon: Volume2, label: "Cosmic Sounds", value: "∞" },
-  ];
+  const stats: { icon: typeof Volume2; label: string; value: string }[] = [];
 
   return (
     <section className="py-16 bg-background">
@@ -26,24 +24,6 @@ export function AboutSection() {
           <div className="space-y-6">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">About Outerspaceways</h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Welcome to Outerspaceways, where cosmic sounds meet afro-futuristic expression. 
-                Inspired by Sun Ra's revolutionary vision, we celebrate music that transcends earthly boundaries.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-muted-foreground leading-relaxed">
-                Since our founding, we've been dedicated to showcasing experimental musicians, 
-                avant-garde jazz artists, and electronic sound explorers who push the boundaries 
-                of what music can be. Our platform connects cosmic travelers through sound.
-              </p>
-              
-              <p className="text-muted-foreground leading-relaxed">
-                Every performance is a journey into unknown dimensions. From intimate venue shows 
-                to large cosmic gatherings, we create spaces where musicians and audiences can 
-                explore the infinite possibilities of afro-futuristic sound together.
-              </p>
             </div>
 
             {/* Stats */}

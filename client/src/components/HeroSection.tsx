@@ -30,9 +30,6 @@ export function HeroSection() {
           <div className="flex items-center justify-center mb-6">
             <OuterspaceaaysLogo size="xl" variant="light" showPattern={true} />
           </div>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 font-light">
-            Cosmic sounds from afro-futuristic dimensions
-          </p>
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
           <Button 
             size="lg" 
