@@ -26,12 +26,6 @@ export function OuterspaceaaysLogo({
     brand: "text-primary"
   };
 
-  const LogoText = (
-    <div className={`font-bold tracking-wider ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}>
-      OUTERSPACEWAYS
-    </div>
-  );
-
   if (showPattern) {
     return (
       <GeometricOverlay 
@@ -39,14 +33,12 @@ export function OuterspaceaaysLogo({
         className="inline-block"
         patternClass={variant === "light" ? "text-white/20" : "text-primary/20"}
       >
-        <div className="px-4 py-2">
-          {LogoText}
-        </div>
+        <div className="px-4 py-2" />
       </GeometricOverlay>
     );
   }
 
-  return LogoText;
+  return null;
 }
 
 export function OuterspaceaaysIcon({ 

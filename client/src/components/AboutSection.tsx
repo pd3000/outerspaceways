@@ -17,7 +17,7 @@ export function AboutSection() {
 
           {/* Content */}
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">About Outerspaceways</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">About</h2>
           </div>
         </div>
       </div>
