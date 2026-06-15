@@ -1,9 +1,13 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ExternalLink } from "lucide-react";
+
 const artists: {
   name: string;
-  genre?: string;
+  website?: string;
+  image?: string;
 }[] = [
-  { name: "Artist Name", genre: "Genre" },
-  { name: "Artist Name", genre: "Genre" },
+  { name: "Artist Name", website: "https://example.com" },
+  { name: "Artist Name", website: "https://example.com" },
 ];
 
 export function AboutSection() {
@@ -26,13 +30,30 @@ export function AboutSection() {
             {artists.map((artist, i) => (
               <div
                 key={i}
-                className="py-4 flex items-center justify-between gap-4"
+                className="py-5 flex items-center gap-4"
                 data-testid={`artist-${i}`}
               >
-                <span className="font-medium text-lg">{artist.name}</span>
-                {artist.genre && (
-                  <span className="text-sm text-muted-foreground">{artist.genre}</span>
-                )}
+                <Avatar className="h-14 w-14 shrink-0">
+                  <AvatarImage src={artist.image} alt={artist.name} />
+                  <AvatarFallback className="text-lg font-semibold">
+                    {artist.name.charAt(0)}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-lg">{artist.name}</p>
+                  {artist.website && (
+                    <a
+                      href={artist.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors truncate"
+                      data-testid={`artist-website-${i}`}
+                    >
+                      <ExternalLink className="h-3 w-3 shrink-0" />
+                      {artist.website.replace(/^https?:\/\//, "")}
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
