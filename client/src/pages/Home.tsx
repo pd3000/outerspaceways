@@ -42,23 +42,22 @@ export default function Home() {
             {sortedGigs.map((gig) => (
               <div
                 key={gig.id}
-                className="py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8"
+                className="py-5 flex flex-col gap-1 sm:grid sm:items-center sm:gap-x-6"
+                style={{ gridTemplateColumns: "160px 1fr 90px 1fr" }}
                 data-testid={`gig-${gig.id}`}
               >
-                <div className="flex items-center gap-2 text-primary font-semibold min-w-[140px]">
+                <div className="flex items-center gap-2 text-primary font-semibold">
                   <Calendar className="h-4 w-4 shrink-0" />
                   <span>{format(gig.date, "MMM d, yyyy")}</span>
                 </div>
-                <div className="flex-1 font-medium">{gig.title}</div>
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5 shrink-0" />
-                    {gig.time}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <MapPin className="h-3.5 w-3.5 shrink-0" />
-                    {gig.venue}
-                  </span>
+                <div className="font-medium">{gig.title}</div>
+                <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                  <Clock className="h-3.5 w-3.5 shrink-0" />
+                  <span>{gig.time}</span>
+                </div>
+                <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                  <MapPin className="h-3.5 w-3.5 shrink-0" />
+                  <span>{gig.venue}</span>
                 </div>
               </div>
             ))}
