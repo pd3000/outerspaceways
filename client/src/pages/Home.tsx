@@ -9,7 +9,13 @@ const gigs: {
   date: Date;
   time: string;
   venue: string;
-}[] = [];
+}[] = [
+  { id: 1, title: "Outerspaceways Night", date: new Date("2026-07-04"), time: "9:00 PM", venue: "The Mothership, Atlanta GA" },
+  { id: 2, title: "Late Night Session", date: new Date("2026-07-12"), time: "10:00 PM", venue: "Club Arkestra, New York NY" },
+  { id: 3, title: "Open Air Gathering", date: new Date("2026-07-19"), time: "7:00 PM", venue: "Prospect Park, Brooklyn NY" },
+  { id: 4, title: "Cosmic Jazz Evening", date: new Date("2026-08-02"), time: "8:30 PM", venue: "The Blue Note, New York NY" },
+  { id: 5, title: "Afrofuture Festival", date: new Date("2026-08-15"), time: "6:00 PM", venue: "Grant Park, Chicago IL" },
+];
 
 const sortedGigs = [...gigs].sort((a, b) => a.date.getTime() - b.date.getTime());
 

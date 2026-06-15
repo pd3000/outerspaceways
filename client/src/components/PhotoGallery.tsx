@@ -1,12 +1,25 @@
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import img1 from "@assets/outerspaceways_2'sticker_V2_1759110228249.jpg";
+import img2 from "@assets/outerspaceways_2'sticker_V1_1759110228249.jpg";
+import img3 from "@assets/generated_images/Mountain_sunset_landscape_photo_0590625f.png";
+import img4 from "@assets/generated_images/Professional_portrait_photo_1e9b8fc3.png";
+import img5 from "@assets/generated_images/Black_white_street_photo_63e586de.png";
+import img6 from "@assets/generated_images/Photographer_behind_scenes_photo_b2694374.png";
 
 const photos: {
   id: number;
   src: string;
   caption?: string;
-}[] = [];
+}[] = [
+  { id: 1, src: img1 },
+  { id: 2, src: img2 },
+  { id: 3, src: img3 },
+  { id: 4, src: img4 },
+  { id: 5, src: img5 },
+  { id: 6, src: img6 },
+];
 
 export function Gallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
