@@ -41,8 +41,10 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover-elevate ${
-                    isActive ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground"
+                  className={`flex items-center space-x-1 px-1 py-2 text-sm font-medium transition-colors border-b-2 ${
+                    isActive
+                      ? "border-primary text-foreground"
+                      : "border-transparent text-muted-foreground hover:text-foreground"
                   }`}
                   data-testid={`link-${item.label.toLowerCase()}`}
                 >
@@ -79,8 +81,8 @@ export function Navigation() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-colors hover-elevate block ${
-                      isActive ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground"
+                    className={`flex items-center space-x-2 px-3 py-2 text-base font-medium transition-colors border-l-2 ${
+                      isActive ? "border-primary text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`mobile-link-${item.label.toLowerCase()}`}
