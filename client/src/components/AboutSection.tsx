@@ -4,7 +4,6 @@ const artists: {
 }[] = [
   { name: "Artist Name", genre: "Genre" },
   { name: "Artist Name", genre: "Genre" },
-  { name: "Artist Name", genre: "Genre" },
 ];
 
 export function AboutSection() {
