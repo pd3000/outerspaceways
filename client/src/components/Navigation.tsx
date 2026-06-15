@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Calendar, User, Mail } from "lucide-react";
+import { Menu, X, Calendar, User, Mail, Images } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link, useLocation } from "wouter";
@@ -12,6 +12,7 @@ export function Navigation() {
 
   const navItems = [
     { href: "/", label: "Shows", icon: Calendar },
+    { href: "/gallery", label: "Gallery", icon: Images },
     { href: "/about", label: "About", icon: User },
     { href: "/contact", label: "Contact", icon: Mail },
   ];
