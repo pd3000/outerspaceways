@@ -102,19 +102,17 @@ function CalendarView() {
                   "text-xs font-medium inline-flex items-center justify-center w-6 h-6 rounded-full",
                   isSelected
                     ? "bg-primary text-primary-foreground"
-                    : hasGig
-                    ? "bg-primary/20 text-primary font-bold"
-                    : "text-muted-foreground",
+                    : "text-foreground",
                 ].join(" ")}
               >
                 {format(day, "d")}
               </span>
               {hasGig && (
-                <div className="mt-0.5 space-y-0.5">
+                <div className="mt-1 space-y-0.5">
                   {dayGigs.map((g) => (
                     <div
                       key={g.id}
-                      className="text-[10px] leading-tight bg-primary/10 text-primary rounded px-1 truncate"
+                      className="text-[10px] leading-tight bg-foreground text-background rounded px-1 truncate"
                     >
                       {g.title}
                     </div>
