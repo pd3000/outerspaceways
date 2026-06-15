@@ -1,16 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Music, ArrowDown, Play } from "lucide-react";
+import { ArrowDown, Play } from "lucide-react";
 import { OuterspaceaaysLogo } from "@/components/OuterspaceaaysLogo";
 import { GeometricOverlay } from "@/components/GeometricPatterns";
 import heroImage from "@assets/tock-page-outerspaceways-hero-logo_1759110228249.jpg";
 
 export function HeroSection() {
-  const scrollToArtists = () => {
-    const artistsSection = document.getElementById("artists");
-    artistsSection?.scrollIntoView({ behavior: "smooth" });
-    console.log("Scrolling to artists");
-  };
-
   return (
     <GeometricOverlay pattern="triangular" patternClass="text-primary/10">
       <section className="relative h-[60vh] md:h-[100vh] flex items-center justify-center overflow-hidden">
@@ -31,16 +25,6 @@ export function HeroSection() {
             <OuterspaceaaysLogo size="xl" variant="light" showPattern={true} />
           </div>
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm"
-            onClick={scrollToArtists}
-            data-testid="button-view-artists"
-          >
-            <Music className="h-4 w-4 mr-2" />
-            View Artists
-          </Button>
           <Button 
             size="lg" 
             variant="outline"

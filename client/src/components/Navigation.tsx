@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Music, Calendar, User, Mail } from "lucide-react";
+import { Menu, X, Calendar, User, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link, useLocation } from "wouter";
@@ -11,7 +11,6 @@ export function Navigation() {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/", label: "Artists", icon: Music },
     { href: "/events", label: "Shows", icon: Calendar },
     { href: "/about", label: "About", icon: User },
     { href: "/contact", label: "Contact", icon: Mail },
