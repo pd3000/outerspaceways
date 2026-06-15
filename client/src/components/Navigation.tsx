@@ -11,7 +11,7 @@ export function Navigation() {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/events", label: "Shows", icon: Calendar },
+    { href: "/", label: "Shows", icon: Calendar },
     { href: "/about", label: "About", icon: User },
     { href: "/contact", label: "Contact", icon: Mail },
   ];
