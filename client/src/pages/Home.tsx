@@ -1,7 +1,7 @@
-import { OuterspaceaaysIcon } from "@/components/OuterspaceaaysLogo";
 import { GeometricOverlay } from "@/components/GeometricPatterns";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import { format } from "date-fns";
+import heroImage from "@assets/tock-page-outerspaceways-hero-logo_1759110228249.jpg";
 
 const gigs: {
   id: number;
@@ -23,13 +23,13 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Header banner */}
-      <GeometricOverlay pattern="triangular" patternClass="text-white/10">
-        <div className="relative flex items-center justify-center py-24 bg-black">
-          <div className="relative z-10 text-center">
-            <OuterspaceaaysIcon size={72} variant="light" />
-          </div>
-        </div>
-      </GeometricOverlay>
+      <div className="relative w-full">
+        <img
+          src={heroImage}
+          alt="Outerspaceways"
+          className="w-full object-cover max-h-[420px]"
+        />
+      </div>
 
       {/* Gig list */}
       <div className="container mx-auto px-4 py-12 max-w-3xl">
