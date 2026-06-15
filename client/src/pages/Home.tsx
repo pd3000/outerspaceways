@@ -164,7 +164,7 @@ export default function Home() {
         <img
           src={heroImage}
           alt="Outerspaceways"
-          className="w-full object-cover max-h-[420px]"
+          className="w-full object-cover object-center h-48 sm:h-64 md:h-80 lg:max-h-[420px] lg:h-auto"
         />
       </div>
 
