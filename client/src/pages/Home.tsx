@@ -1,8 +1,7 @@
-import { OuterspaceaaysLogo } from "@/components/OuterspaceaaysLogo";
+import { OuterspaceaaysIcon } from "@/components/OuterspaceaaysLogo";
 import { GeometricOverlay } from "@/components/GeometricPatterns";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import { format } from "date-fns";
-import heroImage from "@assets/tock-page-outerspaceways-hero-logo_1759110228249.jpg";
 
 const gigs: {
   id: number;
@@ -17,19 +16,11 @@ const sortedGigs = [...gigs].sort((a, b) => a.date.getTime() - b.date.getTime())
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Background header with logo */}
-      <GeometricOverlay pattern="triangular" patternClass="text-primary/10">
-        <div
-          className="relative flex items-center justify-center py-24"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/80" />
+      {/* Header banner */}
+      <GeometricOverlay pattern="triangular" patternClass="text-white/10">
+        <div className="relative flex items-center justify-center py-24 bg-black">
           <div className="relative z-10 text-center">
-            <OuterspaceaaysLogo size="xl" variant="light" showPattern={true} />
+            <OuterspaceaaysIcon size={72} variant="light" />
           </div>
         </div>
       </GeometricOverlay>
