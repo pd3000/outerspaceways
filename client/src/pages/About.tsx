@@ -16,9 +16,6 @@ export default function About() {
               alt="Outerspaceways"
               className="w-44 h-44 md:w-56 md:h-56 rounded-full object-cover shadow-2xl ring-4 ring-white/10"
             />
-            <h1 className="text-white text-3xl md:text-4xl font-bold tracking-widest uppercase">
-              About
-            </h1>
           </div>
         </div>
       </GeometricOverlay>
