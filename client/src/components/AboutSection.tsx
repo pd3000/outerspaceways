@@ -6,8 +6,8 @@ const artists: {
   website?: string;
   image?: string;
 }[] = [
-  { name: "Artist Name", website: "https://example.com" },
-  { name: "Artist Name", website: "https://example.com" },
+  { name: "Brian Settles", website: "https://www.briansettles.com" },
+  { name: "Jonathan Finlayson", website: "https://www.jonathanfinlayson.com" },
 ];
 
 export function AboutSection() {
