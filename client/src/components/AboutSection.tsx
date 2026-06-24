@@ -19,7 +19,7 @@ export function AboutSection() {
         <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About</h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Add your description here.
+            Sun Ra preached spiritual liberation through music. Albert Ayler believed that music was the healing force of the universe. Pharoah Sanders assured us that the creator had a master plan. Fela Kuti told us music was a weapon. Music is a powerful force that has the power to heal, unite and liberate. My work is an homage to these ancestors and an attempt to bring new listeners to creative, improvised music for the purpose of collective liberation.
           </p>
         </div>
 
