@@ -10,6 +10,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import GalleryPage from "@/pages/GalleryPage";
 import Blog from "@/pages/Blog";
+import Shop from "@/pages/Shop";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/" component={Home} />
       {features.gallery && <Route path="/gallery" component={GalleryPage} />}
       {features.blog && <Route path="/blog" component={Blog} />}
+      {features.shop && <Route path="/shop" component={Shop} />}
       <Route path="/about" component={About} />
       <Route component={NotFound} />
     </Switch>

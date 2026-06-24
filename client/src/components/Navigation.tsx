@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Calendar, User, Images, BookOpen } from "lucide-react";
+import { Menu, X, Calendar, User, Images, BookOpen, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link, useLocation } from "wouter";
@@ -15,6 +15,7 @@ export function Navigation() {
     { href: "/", label: "Shows", icon: Calendar },
     ...(features.gallery ? [{ href: "/gallery", label: "Gallery", icon: Images }] : []),
     ...(features.blog ? [{ href: "/blog", label: "Blog", icon: BookOpen }] : []),
+    ...(features.shop ? [{ href: "/shop", label: "Shop", icon: ShoppingBag }] : []),
     { href: "/about", label: "About", icon: User },
   ];
 

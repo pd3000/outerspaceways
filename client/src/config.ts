@@ -4,4 +4,5 @@
 export const features = {
   gallery: false,
   blog: false,
+  shop: false,
 };
