@@ -34,7 +34,7 @@ export function AboutSection() {
                 data-testid={`artist-${i}`}
               >
                 <Avatar className="h-14 w-14 shrink-0">
-                  <AvatarImage src={artist.image} alt={artist.name} />
+                  <AvatarImage src={artist.image} alt={artist.name} className="object-cover object-top" />
                   <AvatarFallback className="text-lg font-semibold">
                     {artist.name.charAt(0)}
                   </AvatarFallback>
