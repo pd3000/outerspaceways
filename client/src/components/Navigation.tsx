@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Menu, X, Calendar, User, Images } from "lucide-react";
+import { Menu, X, Calendar, User, Images, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { Link, useLocation } from "wouter";
 import { OuterspaceaaysLogo, OuterspaceaaysIcon } from "@/components/OuterspaceaaysLogo";
 import { GeometricOverlay } from "@/components/GeometricPatterns";
+import { features } from "@/config";
 
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,7 +13,8 @@ export function Navigation() {
 
   const navItems = [
     { href: "/", label: "Shows", icon: Calendar },
-    { href: "/gallery", label: "Gallery", icon: Images },
+    ...(features.gallery ? [{ href: "/gallery", label: "Gallery", icon: Images }] : []),
+    ...(features.blog ? [{ href: "/blog", label: "Blog", icon: BookOpen }] : []),
     { href: "/about", label: "About", icon: User },
   ];
 
