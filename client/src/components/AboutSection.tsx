@@ -7,7 +7,7 @@ const artists: {
   image?: string;
 }[] = [
   { name: "Brian Settles", website: "https://www.briansettles.com", image: "https://www.briansettles.com/images/_I7C3603.jpg" },
-  { name: "Jonathan Finlayson", website: "https://www.jonathanfinlayson.com" },
+  { name: "Jonathan Finlayson", website: "https://www.jonathanfinlayson.com", image: "https://jonathanfinlayson.com/images/edit1.jpg" },
 ];
 
 export function AboutSection() {
