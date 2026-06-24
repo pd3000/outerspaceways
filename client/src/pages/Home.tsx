@@ -1,33 +1,42 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { GeometricOverlay } from "@/components/GeometricPatterns";
-import { Calendar, Clock, MapPin, List, ChevronLeft, ChevronRight, X } from "lucide-react";
-import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, addMonths, subMonths, isSameMonth, isSameDay } from "date-fns";
+import { Calendar, Clock, MapPin, List, ChevronLeft, ChevronRight, X, ExternalLink } from "lucide-react";
+import {
+  format, parseISO, startOfMonth, endOfMonth, startOfWeek, endOfWeek,
+  addDays, addMonths, subMonths, isSameMonth, isSameDay,
+} from "date-fns";
 import { Button } from "@/components/ui/button";
 import heroImage from "@assets/tock-page-outerspaceways-hero-logo_1759110228249.jpg";
 
-const gigs: {
-  id: number;
+interface GigEvent {
+  id: string;
   title: string;
-  date: Date;
-  time: string;
-  venue: string;
-}[] = [
-  { id: 1, title: "Outerspaceways Night", date: new Date("2026-07-04"), time: "9:00 PM", venue: "The Mothership, Atlanta GA" },
-  { id: 2, title: "Late Night Session", date: new Date("2026-07-12"), time: "10:00 PM", venue: "Club Arkestra, New York NY" },
-  { id: 3, title: "Open Air Gathering", date: new Date("2026-07-19"), time: "7:00 PM", venue: "Prospect Park, Brooklyn NY" },
-  { id: 4, title: "Cosmic Jazz Evening", date: new Date("2026-08-02"), time: "8:30 PM", venue: "The Blue Note, New York NY" },
-  { id: 5, title: "Afrofuture Festival", date: new Date("2026-08-15"), time: "6:00 PM", venue: "Grant Park, Chicago IL" },
-];
-
-const sortedGigs = [...gigs].sort((a, b) => a.date.getTime() - b.date.getTime());
-
-function gigsOnDay(date: Date) {
-  return gigs.filter((g) => isSameDay(g.date, date));
+  start: string;
+  end: string;
+  allDay: boolean;
+  location: string;
+  description: string;
+  url: string;
 }
 
-function CalendarView() {
+function parseDate(iso: string): Date {
+  // all-day events are "YYYY-MM-DD", timed events are full ISO strings
+  return iso.length === 10 ? new Date(iso + "T00:00:00") : parseISO(iso);
+}
+
+function formatTime(event: GigEvent): string {
+  if (event.allDay) return "All day";
+  return format(parseISO(event.start), "h:mm a");
+}
+
+function gigsOnDay(events: GigEvent[], date: Date) {
+  return events.filter((e) => isSameDay(parseDate(e.start), date));
+}
+
+function CalendarView({ events }: { events: GigEvent[] }) {
   const [currentMonth, setCurrentMonth] = useState(() => {
-    const first = sortedGigs[0]?.date ?? new Date();
+    const first = events[0] ? parseDate(events[0].start) : new Date();
     return startOfMonth(first);
   });
   const [selectedDay, setSelectedDay] = useState<Date | null>(null);
@@ -44,44 +53,29 @@ function CalendarView() {
     cursor = addDays(cursor, 1);
   }
 
-  const selectedGigs = selectedDay ? gigsOnDay(selectedDay) : [];
+  const selectedGigs = selectedDay ? gigsOnDay(events, selectedDay) : [];
 
   return (
     <div>
-      {/* Month nav */}
       <div className="flex items-center justify-between mb-6">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
-          data-testid="button-prev-month"
-        >
+        <Button variant="ghost" size="icon" onClick={() => setCurrentMonth(subMonths(currentMonth, 1))} data-testid="button-prev-month">
           <ChevronLeft className="h-4 w-4" />
         </Button>
         <span className="font-semibold text-lg">{format(currentMonth, "MMMM yyyy")}</span>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
-          data-testid="button-next-month"
-        >
+        <Button variant="ghost" size="icon" onClick={() => setCurrentMonth(addMonths(currentMonth, 1))} data-testid="button-next-month">
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
 
-      {/* Day-of-week headers */}
       <div className="grid grid-cols-7 mb-1">
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
-          <div key={d} className="text-center text-xs font-medium text-muted-foreground py-1">
-            {d}
-          </div>
+          <div key={d} className="text-center text-xs font-medium text-muted-foreground py-1">{d}</div>
         ))}
       </div>
 
-      {/* Day grid */}
       <div className="grid grid-cols-7 border-l border-t border-border">
         {days.map((day, i) => {
-          const dayGigs = gigsOnDay(day);
+          const dayGigs = gigsOnDay(events, day);
           const hasGig = dayGigs.length > 0;
           const isCurrentMonth = isSameMonth(day, currentMonth);
           const isSelected = selectedDay ? isSameDay(day, selectedDay) : false;
@@ -97,23 +91,16 @@ function CalendarView() {
               onClick={() => hasGig && setSelectedDay(isSelected ? null : day)}
               data-testid={hasGig ? `cal-day-${format(day, "yyyy-MM-dd")}` : undefined}
             >
-              <span
-                className={[
-                  "text-xs font-medium inline-flex items-center justify-center w-6 h-6 rounded-full",
-                  isSelected
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground",
-                ].join(" ")}
-              >
+              <span className={[
+                "text-xs font-medium inline-flex items-center justify-center w-6 h-6 rounded-full",
+                isSelected ? "bg-primary text-primary-foreground" : "text-foreground",
+              ].join(" ")}>
                 {format(day, "d")}
               </span>
               {hasGig && (
                 <div className="mt-1 space-y-0.5">
                   {dayGigs.map((g) => (
-                    <div
-                      key={g.id}
-                      className="text-[10px] leading-tight bg-foreground text-background rounded px-1 truncate"
-                    >
+                    <div key={g.id} className="text-[10px] leading-tight bg-foreground text-background rounded px-1 truncate">
                       {g.title}
                     </div>
                   ))}
@@ -124,7 +111,6 @@ function CalendarView() {
         })}
       </div>
 
-      {/* Selected day detail */}
       {selectedDay && selectedGigs.length > 0 && (
         <div className="mt-6 border border-border rounded-md p-4 relative">
           <button
@@ -139,12 +125,21 @@ function CalendarView() {
             <div key={gig.id} className="py-2 border-t border-border first:border-t-0">
               <p className="font-medium">{gig.title}</p>
               <div className="flex flex-wrap gap-4 mt-1 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1">
-                  <Clock className="h-3.5 w-3.5" /> {gig.time}
-                </span>
-                <span className="flex items-center gap-1">
-                  <MapPin className="h-3.5 w-3.5" /> {gig.venue}
-                </span>
+                {!gig.allDay && (
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3.5 w-3.5" /> {formatTime(gig)}
+                  </span>
+                )}
+                {gig.location && (
+                  <span className="flex items-center gap-1">
+                    <MapPin className="h-3.5 w-3.5" /> {gig.location}
+                  </span>
+                )}
+                {gig.url && (
+                  <a href={gig.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-primary">
+                    <ExternalLink className="h-3.5 w-3.5" /> View event
+                  </a>
+                )}
               </div>
             </div>
           ))}
@@ -157,9 +152,12 @@ function CalendarView() {
 export default function Home() {
   const [view, setView] = useState<"list" | "calendar">("list");
 
+  const { data: events = [], isLoading, isError } = useQuery<GigEvent[]>({
+    queryKey: ["/api/events"],
+  });
+
   return (
     <div className="min-h-screen">
-      {/* Header banner */}
       <div className="relative w-full">
         <img
           src={heroImage}
@@ -168,7 +166,6 @@ export default function Home() {
         />
       </div>
 
-      {/* Gig list / calendar */}
       <div className="container mx-auto px-4 py-12 max-w-3xl">
         <div className="flex items-center justify-between mb-8 flex-wrap gap-3">
           <h2 className="text-2xl font-bold">Upcoming Shows</h2>
@@ -192,12 +189,29 @@ export default function Home() {
           </div>
         </div>
 
-        {view === "list" ? (
-          sortedGigs.length === 0 ? (
+        {isLoading && (
+          <div className="space-y-4">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="py-5 flex flex-col gap-2 sm:grid sm:gap-x-6 animate-pulse" style={{ gridTemplateColumns: "160px 1fr 90px 1fr" }}>
+                <div className="h-4 bg-muted rounded w-32" />
+                <div className="h-4 bg-muted rounded w-40" />
+                <div className="h-4 bg-muted rounded w-16" />
+                <div className="h-4 bg-muted rounded w-48" />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {isError && (
+          <p className="text-destructive">Could not load events. Please try again later.</p>
+        )}
+
+        {!isLoading && !isError && view === "list" && (
+          events.length === 0 ? (
             <p className="text-muted-foreground">No upcoming shows listed yet.</p>
           ) : (
             <div className="divide-y divide-border">
-              {sortedGigs.map((gig) => (
+              {events.map((gig) => (
                 <div
                   key={gig.id}
                   className="py-5 flex flex-col gap-1 sm:grid sm:items-center sm:gap-x-6"
@@ -206,23 +220,31 @@ export default function Home() {
                 >
                   <div className="flex items-center gap-2 text-primary font-semibold">
                     <Calendar className="h-4 w-4 shrink-0" />
-                    <span>{format(gig.date, "MMM d, yyyy")}</span>
+                    <span>{format(parseDate(gig.start), "MMM d, yyyy")}</span>
                   </div>
-                  <div className="font-medium">{gig.title}</div>
+                  <div className="font-medium">
+                    {gig.url ? (
+                      <a href={gig.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        {gig.title}
+                      </a>
+                    ) : gig.title}
+                  </div>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Clock className="h-3.5 w-3.5 shrink-0" />
-                    <span>{gig.time}</span>
+                    <span>{formatTime(gig)}</span>
                   </div>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <MapPin className="h-3.5 w-3.5 shrink-0" />
-                    <span>{gig.venue}</span>
+                    <span>{gig.location || "—"}</span>
                   </div>
                 </div>
               ))}
             </div>
           )
-        ) : (
-          <CalendarView />
+        )}
+
+        {!isLoading && !isError && view === "calendar" && (
+          <CalendarView events={events} />
         )}
       </div>
     </div>
